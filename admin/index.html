@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | Parfumerie</title>
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">Parfum<span>Luxe</span> Admin</a>
+            <div class="nav-links">
+                <a href="../index.html"><i class="fas fa-home"></i> Site</a>
+                <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="admin-container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="#produits" class="active"><i class="fas fa-cube"></i> Produits</a></li>
+                <li><a href="#ajouter"><i class="fas fa-plus-circle"></i> Ajouter Produit</a></li>
+                <li><a href="#commandes"><i class="fas fa-shopping-bag"></i> Commandes</a></li>
+                <li><a href="#statistiques"><i class="fas fa-chart-bar"></i> Statistiques</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <!-- Section Produits -->
+            <section id="produits" class="section active">
+                <h2><i class="fas fa-cube"></i> Gestion des Produits</h2>
+                <div class="table-container">
+                    <table id="produits-table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Nom</th>
+                                <th>Description</th>
+                                <th>Prix (€)</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="produits-list">
+                            <!-- Produits chargés via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Section Ajouter Produit -->
+            <section id="ajouter" class="section">
+                <h2><i class="fas fa-plus-circle"></i> Ajouter un Nouveau Produit</h2>
+                <form id="ajouter-produit-form" class="form">
+                    <div class="form-group">
+                        <label for="nom">Nom du parfum *</label>
+                        <input type="text" id="nom" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="description">Description *</label>
+                        <textarea id="description" rows="4" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="prix">Prix (€) *</label>
+                        <input type="number" id="prix" step="0.01" min="0" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="image">URL de l'image *</label>
+                        <input type="url" id="image" required>
+                        <small>Insérez une URL d'image (ex: https://exemple.com/image.jpg)</small>
+                        <div class="image-preview" id="image-preview">
+                            <p>Aperçu de l'image apparaîtra ici</p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="categorie">Catégorie</label>
+                        <select id="categorie">
+                            <option value="feminin">Féminin</option>
+                            <option value="masculin">Masculin</option>
+                            <option value="unisexe">Unisexe</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn">
+                            <i class="fas fa-save"></i> Ajouter le Produit
+                        </button>
+                        <button type="reset" class="btn btn-secondary">
+                            <i class="fas fa-redo"></i> Réinitialiser
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Autres sections à compléter plus tard -->
+            <section id="commandes" class="section">
+                <h2>Commandes (à implémenter avec le backend)</h2>
+            </section>
+            
+            <section id="statistiques" class="section">
+                <h2>Statistiques (à implémenter avec le backend)</h2>
+            </section>
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
