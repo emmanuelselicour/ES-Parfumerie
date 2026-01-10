@@ -1,645 +1,90 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxe Parfums - Boutique de Parfums</title>
+    <title>Parfumerie Luxe | Boutique de parfums</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #f9f7f4;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo i {
-            color: #d4af37;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: #d4af37;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: #d4af37;
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .cart-icon {
-            position: relative;
-            font-size: 1.3rem;
-            cursor: pointer;
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: #d4af37;
-            color: #1a1a2e;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-
-        .hero {
-            background: linear-gradient(rgba(26,26,46,0.85), rgba(26,26,46,0.9)), url('https://images.unsplash.com/photo-1541643600914-78b084683601?ixlib=rb-4.0.3');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 6rem 2rem;
-        }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            color: #d4af37;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            opacity: 0.9;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #d4af37;
-            color: #1a1a2e;
-            padding: 12px 28px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: 2px solid #d4af37;
-        }
-
-        .btn:hover {
-            background: transparent;
-            color: #d4af37;
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: #d4af37;
-            border: 2px solid #d4af37;
-        }
-
-        .btn-outline:hover {
-            background: #d4af37;
-            color: #1a1a2e;
-        }
-
-        .products-section {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: #1a1a2e;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: #d4af37;
-            margin: 10px auto;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-        }
-
-        .product-img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            background: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-        }
-
-        .product-info {
-            padding: 1.5rem;
-        }
-
-        .product-category {
-            color: #d4af37;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .product-name {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #1a1a2e;
-        }
-
-        .product-description {
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-            height: 60px;
-            overflow: hidden;
-        }
-
-        .product-price {
-            color: #1a1a2e;
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .btn-add-cart {
-            width: 100%;
-            background: #1a1a2e;
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .btn-add-cart:hover {
-            background: #d4af37;
-        }
-
-        .footer {
-            background: #1a1a2e;
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        .cart-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 400px;
-            height: 100vh;
-            background: white;
-            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-            z-index: 1001;
-            padding: 2rem;
-            overflow-y: auto;
-        }
-
-        .cart-modal.active {
-            display: block;
-        }
-
-        .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 1rem;
-        }
-
-        .close-cart {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #666;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-            .cart-modal {
-                width: 100%;
-            }
-        }
-
-        .loading {
-            text-align: center;
-            padding: 2rem;
-            color: #666;
-        }
-
-        .error {
-            color: #e74c3c;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .coming-soon {
-            text-align: center;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 8px;
-            margin: 2rem 0;
-        }
-    </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav-container">
-            <div class="logo">
-                <i class="fas fa-spa"></i>
-                <span>Luxe Parfums</span>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Parfum<span>Luxe</span></a>
+            <div class="nav-links">
+                <a href="#accueil">Accueil</a>
+                <a href="#produits">Parfums</a>
+                <a href="#apropos">À propos</a>
+                <a href="#contact">Contact</a>
+                <a href="admin/" class="admin-btn">
+                    <i class="fas fa-cog"></i> Admin
+                </a>
+                <a href="#panier" class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
             </div>
-            <ul class="nav-links">
-                <li><a href="#home">Accueil</a></li>
-                <li><a href="#products">Parfums</a></li>
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="cart-icon" onclick="toggleCart()">
-                <i class="fas fa-shopping-bag"></i>
-                <span class="cart-count">0</span>
-            </div>
-        </nav>
-    </header>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <h1>L'Art de la Parfumerie</h1>
-        <p>Découvrez notre collection exclusive de parfums rares et précieux, créés avec des ingrédients d'exception pour une expérience olfactive unique.</p>
-        <a href="#products" class="btn">Découvrir la collection</a>
+    <section id="accueil" class="hero">
+        <div class="container">
+            <h1>L'Art du Parfum</h1>
+            <p>Découvrez notre collection exclusive de parfums raffinés</p>
+            <a href="#produits" class="btn">Découvrir</a>
+        </div>
     </section>
 
-    <!-- Products Section -->
-    <section class="products-section" id="products">
-        <h2 class="section-title">Nos Parfums Exclusifs</h2>
-        <div class="coming-soon">
-            <p>Les produits seront chargés depuis l'API backend</p>
-            <p><small>API URL: <code id="api-url">http://localhost:3000/api/products</code></small></p>
-        </div>
-        <div id="products-container" class="products-grid">
-            <!-- Les produits seront chargés ici via JavaScript -->
-            <div class="loading">
-                <i class="fas fa-spinner fa-spin"></i> Chargement des parfums...
+    <!-- Produits -->
+    <section id="produits" class="produits">
+        <div class="container">
+            <h2>Nos Parfums</h2>
+            <div class="produits-grid" id="produits-container">
+                <!-- Les produits seront chargés via JavaScript -->
+                <div class="loading">Chargement des parfums...</div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="products-section" id="about" style="background: #f0f0f0; padding: 4rem 2rem; border-radius: 12px;">
-        <h2 class="section-title">Notre Histoire</h2>
-        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-            <p style="font-size: 1.1rem; margin-bottom: 2rem;">
-                Depuis 1995, Luxe Parfums incarne l'excellence de la parfumerie française. 
-                Notre maître-parfumeur sélectionne avec passion les matières premières les plus rares 
-                pour créer des fragrances uniques qui racontent une histoire.
-            </p>
-            <div style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-top: 3rem;">
-                <div style="text-align: center;">
-                    <i class="fas fa-leaf" style="font-size: 2.5rem; color: #d4af37; margin-bottom: 1rem;"></i>
-                    <h3 style="color: #1a1a2e; margin-bottom: 0.5rem;">Ingrédients Naturels</h3>
-                    <p>100% d'origine naturelle</p>
-                </div>
-                <div style="text-align: center;">
-                    <i class="fas fa-flask" style="font-size: 2.5rem; color: #d4af37; margin-bottom: 1rem;"></i>
-                    <h3 style="color: #1a1a2e; margin-bottom: 0.5rem;">Savoir-faire Artisanal</h3>
-                    <p>Création sur mesure</p>
-                </div>
-                <div style="text-align: center;">
-                    <i class="fas fa-truck" style="font-size: 2.5rem; color: #d4af37; margin-bottom: 1rem;"></i>
-                    <h3 style="color: #1a1a2e; margin-bottom: 0.5rem;">Livraison Rapide</h3>
-                    <p>48h en France</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="products-section" id="contact">
-        <h2 class="section-title">Contactez-nous</h2>
-        <div style="text-align: center; max-width: 600px; margin: 0 auto;">
-            <p style="margin-bottom: 2rem;">
-                Des questions sur nos parfums ? Notre équipe est à votre disposition.
-            </p>
-            <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center;">
-                <p><i class="fas fa-map-marker-alt" style="color: #d4af37; margin-right: 10px;"></i> 123 Avenue des Champs-Élysées, 75008 Paris</p>
-                <p><i class="fas fa-phone" style="color: #d4af37; margin-right: 10px;"></i> +33 1 23 45 67 89</p>
-                <p><i class="fas fa-envelope" style="color: #d4af37; margin-right: 10px;"></i> contact@luxeparfums.fr</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Cart Modal -->
-    <div class="cart-modal" id="cartModal">
-        <div class="cart-header">
+    <!-- Panier Modal -->
+    <div id="panier-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
             <h2>Votre Panier</h2>
-            <button class="close-cart" onclick="toggleCart()">&times;</button>
-        </div>
-        <div id="cart-items">
-            <div style="text-align: center; padding: 2rem;">
-                <p>Votre panier est vide</p>
+            <div class="cart-items" id="cart-items">
+                <!-- Items du panier -->
+                <p class="empty-cart">Votre panier est vide</p>
             </div>
-        </div>
-        <div style="margin-top: 2rem; border-top: 1px solid #eee; padding-top: 1rem;">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
-                <strong>Total:</strong>
-                <strong id="cart-total">0.00 €</strong>
+            <div class="cart-total">
+                <h3>Total: <span id="cart-total">0.00</span>€</h3>
+                <button class="btn" id="checkout-btn">Commander</button>
             </div>
-            <button class="btn-add-cart" style="background: #d4af37; color: #1a1a2e;">Procéder au paiement</button>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div style="margin-bottom: 2rem;">
-            <div class="logo" style="justify-content: center; margin-bottom: 1rem;">
-                <i class="fas fa-spa"></i>
-                <span>Luxe Parfums</span>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ParfumLuxe</h3>
+                    <p>Votre destination pour des parfums d'exception</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>contact@parfumluxe.com</p>
+                    <p>01 23 45 67 89</p>
+                </div>
             </div>
-            <p>L'excellence olfactive depuis 1995</p>
+            <p class="copyright">&copy; 2024 ParfumLuxe. Tous droits réservés.</p>
         </div>
-        <div style="margin-bottom: 2rem;">
-            <a href="#" style="color: white; margin: 0 10px;"><i class="fab fa-instagram"></i></a>
-            <a href="#" style="color: white; margin: 0 10px;"><i class="fab fa-facebook"></i></a>
-            <a href="#" style="color: white; margin: 0 10px;"><i class="fab fa-pinterest"></i></a>
-        </div>
-        <p style="color: #aaa; font-size: 0.9rem;">&copy; 2024 Luxe Parfums. Tous droits réservés.</p>
     </footer>
 
-    <script>
-        // Données de démonstration (seront remplacées par l'API)
-        const demoProducts = [
-            {
-                id: 1,
-                name: "Nuit Étoilée",
-                category: "Parfum féminin",
-                description: "Une fragrance florale et boisée avec des notes de jasmin et de santal.",
-                price: 89.90,
-                image: "https://images.unsplash.com/photo-1541643600914-78b084683601?ixlib=rb-4.0.3&auto=format&fit=crop&w=500"
-            },
-            {
-                id: 2,
-                name: "Oud Royal",
-                category: "Parfum masculin",
-                description: "Un parfum oriental intense avec des notes d'oud, de patchouli et d'ambre.",
-                price: 129.90,
-                image: "https://images.unsplash.com/photo-1590736969954-7054d3b2e0c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500"
-            },
-            {
-                id: 3,
-                name: "Jardin Secret",
-                category: "Eau de parfum",
-                description: "Une fragrance fraîche et verte avec des notes de rose et de mousse de chêne.",
-                price: 75.50,
-                image: "https://images.unsplash.com/photo-1590736939845-86e41f4c3b1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500"
-            }
-        ];
-
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-        // Fonction pour afficher les produits
-        function displayProducts(products) {
-            const container = document.getElementById('products-container');
-            container.innerHTML = '';
-
-            products.forEach(product => {
-                const productCard = `
-                    <div class="product-card">
-                        <div class="product-img">
-                            ${product.image ? 
-                                `<img src="${product.image}" alt="${product.name}" style="width:100%;height:100%;object-fit:cover;">` : 
-                                `<i class="fas fa-wine-bottle" style="font-size: 3rem; color: #ccc;"></i>`
-                            }
-                        </div>
-                        <div class="product-info">
-                            <div class="product-category">${product.category || 'Parfum'}</div>
-                            <h3 class="product-name">${product.name}</h3>
-                            <p class="product-description">${product.description || 'Une fragrance exceptionnelle.'}</p>
-                            <div class="product-price">${product.price ? product.price.toFixed(2) + ' €' : 'Prix sur demande'}</div>
-                            <button class="btn-add-cart" onclick="addToCart(${product.id})">
-                                <i class="fas fa-shopping-bag"></i> Ajouter au panier
-                            </button>
-                        </div>
-                    </div>
-                `;
-                container.innerHTML += productCard;
-            });
-        }
-
-        // Fonction pour charger les produits depuis l'API
-        async function loadProducts() {
-            const container = document.getElementById('products-container');
-            const apiUrl = document.getElementById('api-url').textContent;
-
-            try {
-                // Essayer de charger depuis l'API
-                const response = await fetch(apiUrl);
-                if (response.ok) {
-                    const products = await response.json();
-                    displayProducts(products);
-                } else {
-                    // Si l'API n'est pas disponible, utiliser les données de démo
-                    throw new Error('API non disponible');
-                }
-            } catch (error) {
-                console.log('Utilisation des données de démonstration:', error);
-                displayProducts(demoProducts);
-                
-                // Mettre à jour le message
-                container.insertAdjacentHTML('beforebegin', 
-                    '<div class="coming-soon"><p>Mode démo actif - Les produits réels seront chargés depuis votre API</p></div>');
-            }
-        }
-
-        // Fonctions pour le panier
-        function addToCart(productId) {
-            const product = demoProducts.find(p => p.id === productId);
-            if (product) {
-                const existingItem = cart.find(item => item.id === productId);
-                if (existingItem) {
-                    existingItem.quantity += 1;
-                } else {
-                    cart.push({ ...product, quantity: 1 });
-                }
-                updateCart();
-                alert(`${product.name} ajouté au panier !`);
-            }
-        }
-
-        function updateCart() {
-            // Mettre à jour le compteur
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            document.querySelector('.cart-count').textContent = totalItems;
-            
-            // Sauvegarder dans localStorage
-            localStorage.setItem('cart', JSON.stringify(cart));
-            
-            // Mettre à jour le modal du panier
-            updateCartModal();
-        }
-
-        function updateCartModal() {
-            const cartItems = document.getElementById('cart-items');
-            const cartTotal = document.getElementById('cart-total');
-            
-            if (cart.length === 0) {
-                cartItems.innerHTML = '<div style="text-align: center; padding: 2rem;"><p>Votre panier est vide</p></div>';
-                cartTotal.textContent = '0.00 €';
-                return;
-            }
-            
-            let itemsHTML = '';
-            let total = 0;
-            
-            cart.forEach(item => {
-                const itemTotal = item.price * item.quantity;
-                total += itemTotal;
-                
-                itemsHTML += `
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid #eee;">
-                        <div>
-                            <strong>${item.name}</strong>
-                            <p style="color: #666; font-size: 0.9rem;">${item.price.toFixed(2)} € × ${item.quantity}</p>
-                        </div>
-                        <div>
-                            <strong>${itemTotal.toFixed(2)} €</strong>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            cartItems.innerHTML = itemsHTML;
-            cartTotal.textContent = total.toFixed(2) + ' €';
-        }
-
-        function toggleCart() {
-            const modal = document.getElementById('cartModal');
-            modal.classList.toggle('active');
-            if (modal.classList.contains('active')) {
-                updateCartModal();
-            }
-        }
-
-        // Initialisation
-        document.addEventListener('DOMContentLoaded', () => {
-            loadProducts();
-            updateCart();
-            
-            // Fermer le panier en cliquant à l'extérieur
-            document.addEventListener('click', (e) => {
-                const modal = document.getElementById('cartModal');
-                const cartIcon = document.querySelector('.cart-icon');
-                if (modal.classList.contains('active') && 
-                    !modal.contains(e.target) && 
-                    !cartIcon.contains(e.target)) {
-                    modal.classList.remove('active');
-                }
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
