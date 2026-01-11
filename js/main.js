@@ -16,7 +16,7 @@ async function loadProducts() {
         container.innerHTML = '<div class="loading">Chargement des produits...</div>';
         
         // Remplacer par votre URL d'API Render quand elle sera disponible
-        const response = await fetch('https://votre-api.onrender.com/api/products');
+        const response = await fetch('https://es-parfumerie-api.onrender.com/api/products');
         
         if (!response.ok) {
             throw new Error('Erreur de chargement des produits');
