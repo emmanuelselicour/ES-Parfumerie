@@ -3,65 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parfumerie Luxe | Boutique de parfums</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>ES Parfumerie - Boutique de Parfums</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <a href="#" class="logo">Parfum<span>Luxe</span></a>
+            <a href="https://emmanuelselicour.github.io/ES-Parfumerie/" class="logo">ES Parfumerie</a>
             <div class="nav-links">
                 <a href="#accueil">Accueil</a>
-                <a href="#produits">Parfums</a>
-                <a href="#apropos">À propos</a>
+                <a href="#produits">Produits</a>
                 <a href="#contact">Contact</a>
-                <a href="admin/" class="admin-btn">
-                    <i class="fas fa-cog"></i> Admin
-                </a>
-                <a href="#panier" class="cart-btn">
+                <a href="#panier" class="cart-icon">
                     <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count">0</span>
+                    <span id="cart-count">0</span>
                 </a>
             </div>
-            <button class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="accueil" class="hero">
         <div class="container">
-            <h1>L'Art du Parfum</h1>
-            <p>Découvrez notre collection exclusive de parfums raffinés</p>
-            <a href="#produits" class="btn">Découvrir</a>
+            <h1>L'art du parfum</h1>
+            <p>Découvrez notre collection exclusive de parfums rares</p>
+            <a href="#produits" class="btn">Voir la collection</a>
         </div>
     </section>
 
-    <!-- Produits -->
-    <section id="produits" class="produits">
+    <!-- Produits Section -->
+    <section id="produits" class="products">
         <div class="container">
-            <h2>Nos Parfums</h2>
-            <div class="produits-grid" id="produits-container">
-                <!-- Les produits seront chargés via JavaScript -->
-                <div class="loading">Chargement des parfums...</div>
+            <h2>Nos Produits</h2>
+            <div class="products-grid" id="products-container">
+                <!-- Les produits seront chargés dynamiquement -->
+                <div class="loading">Chargement des produits...</div>
             </div>
         </div>
     </section>
 
     <!-- Panier Modal -->
-    <div id="panier-modal" class="modal">
+    <div id="cart-modal" class="modal">
         <div class="modal-content">
-            <span class="close-modal">&times;</span>
+            <span class="close">&times;</span>
             <h2>Votre Panier</h2>
-            <div class="cart-items" id="cart-items">
-                <!-- Items du panier -->
-                <p class="empty-cart">Votre panier est vide</p>
-            </div>
+            <div id="cart-items"></div>
             <div class="cart-total">
-                <h3>Total: <span id="cart-total">0.00</span>€</h3>
+                <h3>Total: <span id="cart-total">0</span>€</h3>
                 <button class="btn" id="checkout-btn">Commander</button>
             </div>
         </div>
@@ -70,21 +60,10 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>ParfumLuxe</h3>
-                    <p>Votre destination pour des parfums d'exception</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p>contact@parfumluxe.com</p>
-                    <p>01 23 45 67 89</p>
-                </div>
-            </div>
-            <p class="copyright">&copy; 2024 ParfumLuxe. Tous droits réservés.</p>
+            <p>&copy; 2024 ES Parfumerie. Tous droits réservés.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
